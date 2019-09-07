@@ -17,6 +17,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
 }
 
 dependencies {
@@ -43,9 +47,12 @@ dependencies {
     implementation 'com.codemybrainsout.onboarding:onboarder:1.0.4'
     implementation 'com.mobsandgeeks:android-saripaar:2.0.3'
     implementation 'com.mikepenz:itemanimators:1.1.0'
+    implementation 'com.mikepenz:iconics-core:4.0.1-b02'
+    implementation 'com.mikepenz:iconics-views:4.0.1-b02'
+    implementation 'com.mikepenz:community-material-typeface:3.5.95.1-kotlin@aar'
     //    google maps
-    implementation 'com.google.android.gms:play-services-maps:16.1.0'
-    implementation 'com.google.android.gms:play-services-location:16.0.0'
+    implementation 'com.google.android.gms:play-services-maps:17.0.0'
+    implementation 'com.google.android.gms:play-services-location:17.0.0'
     implementation 'com.google.maps.android:android-maps-utils:0.5'
 
 }

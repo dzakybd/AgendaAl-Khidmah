@@ -1,4 +1,4 @@
-package id.alkhidmah.agendaal_khidmah;
+package id.alkhidmah.agendaal_khidmah.view;
 
 
 import android.os.Bundle;
@@ -10,6 +10,8 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import id.alkhidmah.agendaal_khidmah.R;
 
 
 public class ListFragment extends Fragment {

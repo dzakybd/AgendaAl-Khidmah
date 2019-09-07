@@ -1,4 +1,4 @@
-package id.alkhidmah.agendaal_khidmah;
+package id.alkhidmah.agendaal_khidmah.view;
 
 import android.content.Context;
 import android.net.Uri;
@@ -12,6 +12,7 @@ import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import id.alkhidmah.agendaal_khidmah.R;
 
 
 public class MapsFragment extends Fragment {
