@@ -1,18 +1,13 @@
 package id.alkhidmah.agendaal_khidmah.view;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.LayoutInflaterCompat;
-import androidx.fragment.app.Fragment;
-
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.mikepenz.iconics.IconicsDrawable;
-import com.mikepenz.iconics.context.IconicsLayoutInflater2;
-import com.mikepenz.iconics.typeface.library.community.material.CommunityMaterial;
 
 import id.alkhidmah.agendaal_khidmah.R;
 

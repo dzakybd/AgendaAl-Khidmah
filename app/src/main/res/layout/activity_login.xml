@@ -35,20 +35,17 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
 
         <EditText
-            android:drawableLeft="@drawable/ic_bottom_navigation_profile"
+            android:drawableLeft="@drawable/ic_nomor_hp"
             android:id="@+id/fieldakun"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Email/Username/No.HP"
+            android:hint="Nomor HP"
             android:inputType="textEmailAddress" />
+
+
         <EditText
             android:drawableLeft="@drawable/ic_icon_password"
             android:id="@+id/fieldpassword"
@@ -58,36 +55,69 @@
             android:hint="Password"
             android:inputType="textPassword" />
 
-    </LinearLayout>
-
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_margin="10dp"
         android:backgroundTint="@color/primaryColor"
         android:onClick="masukclick"
         android:id="@+id/buttonmasuk"
         android:text="Masuk"
         android:textAppearance="@style/TextAppearance.AppCompat.Small" />
 
-    <TextView
-        android:layout_marginTop="30dp"
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Belum punya akun?" />
 
-    <TextView
-        android:onClick="daftarclick"
-        android:id="@+id/buttondaftar"
-        android:textStyle="bold"
-        android:layout_marginTop="5dp"
-        android:textColor="@color/colorAccent"
-        android:gravity="center"
+    <LinearLayout
+        android:layout_marginLeft="@dimen/margin_full"
+        android:layout_marginRight="@dimen/margin_full"
+        android:weightSum="2"
+        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="DAFTAR" />
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_weight="1"
+            android:text="Belum punya akun?"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:layout_weight="1"
+            android:onClick="daftarclick"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/buttondaftar"
+            android:text="DAFTAR"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginLeft="@dimen/margin_full"
+        android:layout_marginRight="@dimen/margin_full"
+        android:weightSum="2"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_weight="1"
+            android:text="Ada kendala login?"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:layout_weight="1"
+            android:onClick="hubungiclick"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/button_hubungiadmin"
+            android:text="Hubungi Admin"/>
+
+
+    </LinearLayout>
 
 
 
