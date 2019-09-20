@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                 break;
 
             case R.id.bottom_navigation_item_maps:
-                fragment = new MapsFragment();
+                fragment = new PostsFragment();
                 break;
 
             case R.id.bottom_navigation_item_bookmark:

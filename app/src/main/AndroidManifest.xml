@@ -18,7 +18,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.EditMajelisActivity"></activity>
+        <activity android:name=".view.EditMajelisActivity" />
         <activity android:name=".view.EditAkunActivity" />
         <activity android:name=".view.InfoActivity" />
         <activity
