@@ -1,7 +1,5 @@
-package id.alkhidmah.agendaal_khidmah.view;
+package id.alkhidmah.agendaal_khidmah.home;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;

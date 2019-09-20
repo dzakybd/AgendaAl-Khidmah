@@ -1,4 +1,4 @@
-package id.alkhidmah.agendaal_khidmah.view;
+package id.alkhidmah.agendaal_khidmah.home;
 
 
 import android.os.Bundle;
@@ -14,13 +14,10 @@ import android.view.ViewGroup;
 import id.alkhidmah.agendaal_khidmah.R;
 
 
-/**
- * A simple {@link Fragment} subclass.
- */
-public class ProfileFragment extends Fragment {
+public class ListFragment extends Fragment {
 
 
-    public ProfileFragment() {
+    public ListFragment() {
         // Required empty public constructor
     }
 
@@ -29,7 +26,7 @@ public class ProfileFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View v = inflater.inflate(R.layout.fragment_profile, container, false);
+        View v = inflater.inflate(R.layout.fragment_list, container, false);
         setHasOptionsMenu(true);
         return v;
     }
@@ -37,8 +34,10 @@ public class ProfileFragment extends Fragment {
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         menu.clear();
-        inflater.inflate(R.menu.profile_fragment_menu, menu);
+        inflater.inflate(R.menu.list_fragment_menu, menu);
         super.onCreateOptionsMenu(menu, inflater);
     }
+
+
 
 }

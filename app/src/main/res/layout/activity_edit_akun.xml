@@ -27,7 +27,6 @@
 
             <Spinner
                 android:id="@+id/spinnerjenisakun"
-                android:prompt="Jenis akun"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
@@ -67,28 +66,24 @@
 
             <Spinner
                 android:id="@+id/spinnertingkat"
-                android:prompt="Tingkat"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
             <Spinner
                 android:visibility="gone"
                 android:id="@+id/spinnerwilayah"
-                android:prompt="Wilayah"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
             <Spinner
                 android:visibility="gone"
                 android:id="@+id/spinnerdaerah"
-                android:prompt="Daerah"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
             <Spinner
                 android:visibility="gone"
                 android:id="@+id/spinnercabang"
-                android:prompt="Cabang"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 

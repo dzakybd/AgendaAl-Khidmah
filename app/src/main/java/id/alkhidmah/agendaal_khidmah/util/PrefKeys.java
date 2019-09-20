@@ -4,12 +4,41 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PrefKeys {
-    public static final String nohp="nohp";
+
+
+    public static final String idakun="idakun";
+    public static final String is_pengurus="is_pengurus";
+    public static final String pengurus_level="pengurus_level";
+    public static final String no_hp="no_hp";
+    public static final String alamat="alamat";
+    public static final String password="password";
+    public static final String is_active="is_active";
+    public static final String wilayah_idwilayah="wilayah_idwilayah";
+    public static final String daerah_iddaerah="daerah_iddaerah";
+    public static final String cabang_idcabang="cabang_idcabang";
+    public static final String nama_wilayah="nama_wilayah";
+    public static final String nama_daerah="nama_daerah";
+    public static final String nama_cabang="nama_cabang";
+    public static final String idmajelis="idmajelis";
+    public static final String akun_idakun="akun_idakun";
+    public static final String jenis_acara="jenis_acara";
+    public static final String judul="judul";
+    public static final String latitude="latitude";
+    public static final String longitude="longitude";
+    public static final String tanggal_waktu="tanggal_waktu";
+    public static final String keterangan="keterangan";
+    public static final String url_poster="url_poster";
+    public static final String imam_khususi="imam_khususi";
+    public static final String idwilayah="idwilayah";
+    public static final String iddaerah="iddaerah";
+    public static final String idcabang="idcabang";
+
     public static final String permissions="permissions";
     public static final String result="result";
     public static final String msg="msg";
-    public static final String mode="mode";
 
+
+    public static final String mode="mode";
     public static final int nothing=-1;
     public static final int mode_create=0;
     public static final int mode_read=1;
@@ -18,6 +47,12 @@ public class PrefKeys {
 
     public static final String BASE_URL = "http://159.65.133.176/alkhidmah/";
     public static final String LOGIN = BASE_URL+"login.php";
+    public static final String GET_AKUN = BASE_URL+"get_akun.php";
+    public static final String EDIT_AKUN = BASE_URL+"edit_akun.php";
+    public static final String GET_MAJELIS = BASE_URL+"get_majelis.php";
+    public static final String EDIT_MAJELIS = BASE_URL+"edit_majelis.php";
+    public static final String GET_WILDACAB = BASE_URL+"get_wildacab.php";
+
 
     public static final List<String> jenisakun = new ArrayList<String>() {{
         add("Jamaah");

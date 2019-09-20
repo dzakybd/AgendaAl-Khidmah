@@ -1,13 +1,12 @@
-package id.alkhidmah.agendaal_khidmah.view;
+package id.alkhidmah.agendaal_khidmah.home;
 
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.fragment.app.Fragment;
 
 import id.alkhidmah.agendaal_khidmah.R;
 

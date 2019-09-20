@@ -6,13 +6,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import id.alkhidmah.agendaal_khidmah.R;
 
-public class EditAkunActivity extends AppCompatActivity {
-
+public class EditMajelisActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_edit_akun);
-
+        setContentView(R.layout.activity_edit_majelis);
     }
 }
