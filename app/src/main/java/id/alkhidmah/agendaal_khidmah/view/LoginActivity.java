@@ -2,24 +2,36 @@ package id.alkhidmah.agendaal_khidmah.view;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.android.volley.Request;
+import com.android.volley.error.VolleyError;
+import com.android.volley.request.StringRequest;
+import com.google.gson.Gson;
 import com.mobsandgeeks.saripaar.ValidationError;
 import com.mobsandgeeks.saripaar.Validator;
 import com.mobsandgeeks.saripaar.annotation.NotEmpty;
 import com.mobsandgeeks.saripaar.annotation.Password;
 
+import org.json.JSONObject;
+
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
 import id.alkhidmah.agendaal_khidmah.R;
+import id.alkhidmah.agendaal_khidmah.home.MainActivity;
+import id.alkhidmah.agendaal_khidmah.model.Akun;
+import id.alkhidmah.agendaal_khidmah.util.AppController;
 import id.alkhidmah.agendaal_khidmah.util.PrefKeys;
 import id.alkhidmah.agendaal_khidmah.util.SharedMethods;
-import id.alkhidmah.agendaal_khidmah.home.MainActivity;
 
 public class LoginActivity extends AppCompatActivity implements Validator.ValidationListener {
 
@@ -62,8 +74,9 @@ public class LoginActivity extends AppCompatActivity implements Validator.Valida
     @Override
     public void onValidationSucceeded() {
         SharedMethods sharedMethods = new SharedMethods();
-        if(!sharedMethods.checkint(this, true))return;
-        login();
+        if(sharedMethods.checkint(this, true)){
+            login();
+        }
     }
 
     @Override
@@ -81,41 +94,45 @@ public class LoginActivity extends AppCompatActivity implements Validator.Valida
     }
 
     private void login() {
-//        String url = PrefKeys.LOGIN;
-//        StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
-//                response -> {
-//                    JSONArray result;
-//                    JSONObject header, content;
-//                    Log.d("Cobaa", response.toString());
-//                    try {
-//                        header = new JSONObject(response);
-//                        String msg = header.getString(PrefKeys.msg);
-//                        if(msg.contentEquals("Sukses")){
-//                            result = header.getJSONArray(PrefKeys.result);
-//                            content = (JSONObject) result.get(0);
-//                            //Deserialkan pada class POJO
-//                            Akun akunku = gson.fromJson(content.toString(), Akun.class);
-//                            Log.d("Cobaa", akunku.nama);
-//                        }else{
-//                            Log.d(PrefKeys.ErrorTAG,"efdef");
-//                        }
-//
-//                    } catch (Exception e) {
-//                        Log.d(PrefKeys.ErrorTAG,e.getMessage());
-//                    }
-//                },
-//                (VolleyError error) -> {
-//
-//                }){
-//            @Override
-//            protected Map<String,String> getParams(){
-//                Map<String,String> params = new HashMap<>();
-//                params.put(PrefKeys.nohp,mTextNohp.getEditText().getText().toString());
-//                params.put(PrefKeys.password,mTextPassword.getEditText().getText().toString());
-//                return params;
-//            }
-//        };
-//        AppController.getInstance().addToRequestQueue(stringRequest);
+        String url = PrefKeys.LOGIN;
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
+                response -> {
+                    Log.d("Cobaa", "wqqweq");
+                    try {
+                        JSONObject result;
+                        result = new JSONObject(response);
+                        if(result.getString(PrefKeys.idakun).contentEquals("null")) {
+                            new SweetAlertDialog(LoginActivity.this)
+                                    .setTitleText("Login salah!")
+                                    .show();
+                        } else{
+                            Gson gson = new Gson();
+                            Akun akunku = gson.fromJson(result.toString(), Akun.class);
+                            Log.d("Cobaa", akunku.alamat);
+                            Toast.makeText(this, akunku.alamat, Toast.LENGTH_SHORT).show();
+//                            move();
+                        }
+
+                    } catch (Exception e) {
+                        Log.d(PrefKeys.ErrorTAG, Objects.requireNonNull(e.getMessage()));
+                    }
+                },
+                (VolleyError error) -> {
+                    Log.d(PrefKeys.ErrorTAG, Objects.requireNonNull(error.getMessage()));
+                    new SweetAlertDialog(LoginActivity.this, SweetAlertDialog.ERROR_TYPE)
+                            .setTitleText("Maaf")
+                            .setContentText("Koneksi bermasalah!")
+                            .show();
+                }){
+            @Override
+            protected Map<String,String> getParams(){
+                Map<String,String> params = new HashMap<>();
+                params.put(PrefKeys.no_hp,mFieldakun.getText().toString());
+                params.put(PrefKeys.password,mFieldpassword.getText().toString());
+                return params;
+            }
+        };
+        AppController.getInstance().addToRequestQueue(stringRequest);
     }
 
     public void hubungiclick(View view) {
