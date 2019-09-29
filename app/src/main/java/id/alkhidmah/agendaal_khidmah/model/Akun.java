@@ -14,9 +14,9 @@ public class Akun {
     @SerializedName("is_pengurus")
     @Expose
     public boolean is_pengurus;
-    @SerializedName("pengurus_level")
+    @SerializedName("tingkat_pengurus")
     @Expose
-    public int pengurus_level;
+    public int tingkat_pengurus;
     @SerializedName("no_hp")
     @Expose
     public String no_hp;

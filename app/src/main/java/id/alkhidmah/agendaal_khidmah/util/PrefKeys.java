@@ -8,7 +8,7 @@ public class PrefKeys {
 
     public static final String idakun="idakun";
     public static final String is_pengurus="is_pengurus";
-    public static final String pengurus_level="pengurus_level";
+    public static final String tingkat_pengurus="tingkat_pengurus";
     public static final String no_hp="no_hp";
     public static final String alamat="alamat";
     public static final String password="password";
@@ -33,7 +33,7 @@ public class PrefKeys {
     public static final String iddaerah="iddaerah";
     public static final String idcabang="idcabang";
     public static final String idwildacab="idwildacab";
-
+    public static final String init="init";
     public static final String permissions="permissions";
     public static final String result="result";
     public static final String msg="msg";

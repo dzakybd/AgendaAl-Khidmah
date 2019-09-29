@@ -13,7 +13,8 @@
         android:layout_height="wrap_content">
 
         <LinearLayout
-            android:layout_margin="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -45,50 +46,90 @@
                     android:layout_height="wrap_content" />
                 <EditText
                     android:id="@+id/fieldnama"
-                    android:layout_width="250dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:hint="Nama"
                     android:inputType="text" />
             </LinearLayout>
 
-        <LinearLayout
-            android:visibility="gone"
-            android:id="@+id/layout_wildacab"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_marginTop="10dp"
-                android:text="Tingkat"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-            <Spinner
-                android:id="@+id/spinnertingkat"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-
-            <Spinner
+            <LinearLayout
                 android:visibility="gone"
-                android:id="@+id/spinnerwilayah"
+                android:id="@+id/layout_tingkat"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-            <Spinner
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Tingkat" />
+
+                <Spinner
+                    android:id="@+id/spinnertingkat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+            <LinearLayout
                 android:visibility="gone"
-                android:id="@+id/spinnerdaerah"
+                android:id="@+id/layout_wilayah"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-            <Spinner
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="Wilayah" />
+
+                    <Spinner
+                        android:id="@+id/spinnerwilayah"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <LinearLayout
                 android:visibility="gone"
-                android:id="@+id/spinnercabang"
+                android:id="@+id/layout_daerah"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-        </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="Daerah" />
+
+                    <Spinner
+                        android:id="@+id/spinnerdaerah"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:visibility="gone"
+                android:id="@+id/layout_cabang"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="Cabang" />
+
+                    <Spinner
+                        android:id="@+id/spinnercabang"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+            </LinearLayout>
+
 
             <TextView
                 android:layout_marginTop="10dp"
@@ -99,7 +140,7 @@
             <EditText
 
                 android:id="@+id/fieldnohp"
-                android:layout_width="250dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="Nomor HP"
@@ -113,7 +154,7 @@
 
             <EditText
                 android:id="@+id/fieldpass1"
-                android:layout_width="250dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="Password"
@@ -128,7 +169,7 @@
             <EditText
 
                 android:id="@+id/fieldpass2"
-                android:layout_width="250dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="Ulangi password"
@@ -143,7 +184,7 @@
 
             <EditText
                 android:id="@+id/fieldalamat"
-                android:layout_width="250dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="Alamat"
