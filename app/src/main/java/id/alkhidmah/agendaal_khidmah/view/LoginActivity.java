@@ -53,6 +53,7 @@ public class LoginActivity extends AppCompatActivity implements Validator.Valida
 
         validator = new Validator(this);
         validator.setValidationListener(this);
+
     }
 
     private void move() {
@@ -97,7 +98,6 @@ public class LoginActivity extends AppCompatActivity implements Validator.Valida
         String url = PrefKeys.LOGIN;
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
                 response -> {
-                    Log.d("Cobaa", "wqqweq");
                     try {
                         JSONObject result;
                         result = new JSONObject(response);

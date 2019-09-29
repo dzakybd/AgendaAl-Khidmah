@@ -32,6 +32,7 @@ public class PrefKeys {
     public static final String idwilayah="idwilayah";
     public static final String iddaerah="iddaerah";
     public static final String idcabang="idcabang";
+    public static final String idwildacab="idwildacab";
 
     public static final String permissions="permissions";
     public static final String result="result";
@@ -66,13 +67,13 @@ public class PrefKeys {
         add("Cabang");
     }};
 
-    public static final int peran_jamaah=1;
-    public static final int peran_pengurus=2;
+    public static final int peran_jamaah=0;
+    public static final int peran_pengurus=1;
 
-    public static final int tingkat_pusat=1;
-    public static final int tingkat_wilayah=2;
-    public static final int tingkat_daerah=3;
-    public static final int tingkat_cabang=4;
+    public static final int tingkat_pusat=0;
+    public static final int tingkat_wilayah=1;
+    public static final int tingkat_daerah=2;
+    public static final int tingkat_cabang=3;
 
     public static final int status_nonaktif=0;
     public static final int status_aktif=1;
