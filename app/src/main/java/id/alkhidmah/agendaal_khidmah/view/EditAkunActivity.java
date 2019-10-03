@@ -27,6 +27,7 @@ import com.mobsandgeeks.saripaar.annotation.NotEmpty;
 import com.mobsandgeeks.saripaar.annotation.Password;
 
 import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -46,7 +47,7 @@ import id.alkhidmah.agendaal_khidmah.util.SharedMethods;
 
 public class EditAkunActivity extends AppCompatActivity implements Validator.ValidationListener {
 
-    private int mode;
+    private String mode;
     private Akun akunku;
     private Spinner mSpinnerjenisakun;
     @NotEmpty(message = "Harap diisi")
@@ -104,7 +105,7 @@ public class EditAkunActivity extends AppCompatActivity implements Validator.Val
         validator = new Validator(this);
         validator.setValidationListener(this);
 
-        mode = Objects.requireNonNull(getIntent().getExtras()).getInt(PrefKeys.mode);
+        mode = Objects.requireNonNull(getIntent().getExtras()).getString(PrefKeys.mode);
 
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -203,6 +204,63 @@ public class EditAkunActivity extends AppCompatActivity implements Validator.Val
     }
 
     private void daftar() {
+        String url = PrefKeys.EDIT_AKUN;
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
+                response -> {
+                    try {
+                        JSONObject result;
+                        result = new JSONObject(response);
+                        if(result.getString(PrefKeys.result).contentEquals(PrefKeys.null_value)) {
+                            new SweetAlertDialog(EditAkunActivity.this, SweetAlertDialog.ERROR_TYPE)
+                                    .setContentText(PrefKeys.input_error)
+                                    .show();
+                        } else{
+                            Gson gson = new Gson();
+                            Akun akunku = gson.fromJson(result.toString(), Akun.class);
+                            Log.d("Cobaa", akunku.alamat);
+                            Toast.makeText(this, akunku.alamat, Toast.LENGTH_SHORT).show();
+//                            move();
+                        }
+
+                    } catch (Exception e) {
+                        Log.d(PrefKeys.ErrorTAG, Objects.requireNonNull(e.getMessage()));
+                    }
+                },
+                (VolleyError error) -> {
+                    Log.d(PrefKeys.ErrorTAG, Objects.requireNonNull(error.getMessage()));
+                    new SweetAlertDialog(EditAkunActivity.this, SweetAlertDialog.ERROR_TYPE)
+                            .setContentText(PrefKeys.connection_error)
+                            .show();
+                }){
+            @Override
+            protected Map<String,String> getParams(){
+                Map<String,String> params = new HashMap<>();
+                params.put(PrefKeys.mode,mode);
+                params.put(PrefKeys.no_hp,mFieldnohp.getText().toString());
+                params.put(PrefKeys.password,mFieldpass2.getText().toString());
+                params.put(PrefKeys.is_active,PrefKeys.one_string);
+
+                int is_pengurus = mSpinnerjenisakun.getSelectedItemPosition();
+                params.put(PrefKeys.is_pengurus,String.valueOf(is_pengurus));
+
+                int tingkat = 0;
+                if (is_pengurus>0) tingkat = mSpinnertingkat.getSelectedItemPosition();
+                params.put(PrefKeys.tingkat_pengurus,String.valueOf(tingkat));
+
+                if (tingkat >= PrefKeys.tingkat_wilayah) params.put(PrefKeys.wilayah_idwilayah, String.valueOf(wilayah_map.get(mSpinnerwilayah.getSelectedItem().toString())));
+                else params.put(PrefKeys.wilayah_idwilayah,PrefKeys.zero_string);
+
+                if (tingkat >= PrefKeys.tingkat_daerah) params.put(PrefKeys.daerah_iddaerah, String.valueOf(daerah_map.get(mSpinnerdaerah.getSelectedItem().toString())));
+                else params.put(PrefKeys.daerah_iddaerah,PrefKeys.zero_string);
+
+                if (tingkat >= PrefKeys.tingkat_daerah) params.put(PrefKeys.cabang_idcabang, String.valueOf(cabang_map.get(mSpinnercabang.getSelectedItem().toString())));
+                else params.put(PrefKeys.cabang_idcabang,PrefKeys.zero_string);
+
+                Log.i(PrefKeys.InfoTAG, "post: " + new Gson().toJson(params));
+                return params;
+            }
+        };
+        AppController.getInstance().addToRequestQueue(stringRequest);
     }
 
     @Override

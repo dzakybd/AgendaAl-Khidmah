@@ -5,7 +5,7 @@ import java.util.List;
 
 public class PrefKeys {
 
-
+    public static final String null_value="null";
     public static final String idakun="idakun";
     public static final String is_pengurus="is_pengurus";
     public static final String tingkat_pengurus="tingkat_pengurus";
@@ -36,18 +36,23 @@ public class PrefKeys {
     public static final String init="init";
     public static final String permissions="permissions";
     public static final String result="result";
-    public static final String msg="msg";
+    public static final String input_error="Masukan salah";
+    public static final String no_hp_exist="no_hp_exist";
+    public static final String pengurus_exist="pengurus_exist";
+    public static final String no_hp_exist_error="No HP sudah terdaftar";
+    public static final String pengurus_exist_error="Sudah ada pengurus di tingkat tersebut";
+    public static final String process_error="Proses bermasalah";
+    public static final String connection_error="Koneksi bermasalah";
 
 
     public static final String mode="mode";
-    public static final int nothing=-1;
-    public static final int mode_create=0;
-    public static final int mode_read=1;
-    public static final int mode_update=2;
-    public static final int mode_delete=3;
+    public static final String mode_nothing="nothing";
+    public static final String mode_create="create";
+    public static final String mode_read="read";
+    public static final String mode_update="update";
+    public static final String mode_delete="delete";
 
     public static final String BASE_URL = "http://159.65.133.176/alkhidmah/";
-    public static final String LOGIN = BASE_URL+"login.php";
     public static final String GET_AKUN = BASE_URL+"get_akun.php";
     public static final String EDIT_AKUN = BASE_URL+"edit_akun.php";
     public static final String GET_MAJELIS = BASE_URL+"get_majelis.php";
@@ -67,6 +72,12 @@ public class PrefKeys {
         add("Cabang");
     }};
 
+    public static final String zero_string="0";
+    public static final String one_string="1";
+
+    public static final int zero_int=0;
+    public static final int one_int=1;
+
     public static final int peran_jamaah=0;
     public static final int peran_pengurus=1;
 
@@ -79,5 +90,6 @@ public class PrefKeys {
     public static final int status_aktif=1;
 
     public static final String ErrorTAG = "ErrorTAG";
+    public static final String InfoTAG = "InfoTAG";
 
 }

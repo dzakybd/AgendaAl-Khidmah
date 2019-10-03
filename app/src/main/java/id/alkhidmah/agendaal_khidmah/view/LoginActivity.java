@@ -95,15 +95,15 @@ public class LoginActivity extends AppCompatActivity implements Validator.Valida
     }
 
     private void login() {
-        String url = PrefKeys.LOGIN;
+        String url = PrefKeys.GET_AKUN;
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
                 response -> {
                     try {
                         JSONObject result;
                         result = new JSONObject(response);
-                        if(result.getString(PrefKeys.idakun).contentEquals("null")) {
-                            new SweetAlertDialog(LoginActivity.this)
-                                    .setTitleText("Login salah!")
+                        if(result.getString(PrefKeys.result).contentEquals(PrefKeys.null_value)) {
+                            new SweetAlertDialog(LoginActivity.this, SweetAlertDialog.ERROR_TYPE)
+                                    .setContentText(PrefKeys.input_error)
                                     .show();
                         } else{
                             Gson gson = new Gson();
@@ -120,13 +120,13 @@ public class LoginActivity extends AppCompatActivity implements Validator.Valida
                 (VolleyError error) -> {
                     Log.d(PrefKeys.ErrorTAG, Objects.requireNonNull(error.getMessage()));
                     new SweetAlertDialog(LoginActivity.this, SweetAlertDialog.ERROR_TYPE)
-                            .setTitleText("Maaf")
-                            .setContentText("Koneksi bermasalah!")
+                            .setContentText(PrefKeys.connection_error)
                             .show();
                 }){
             @Override
             protected Map<String,String> getParams(){
                 Map<String,String> params = new HashMap<>();
+                params.put(PrefKeys.mode,"login");
                 params.put(PrefKeys.no_hp,mFieldakun.getText().toString());
                 params.put(PrefKeys.password,mFieldpassword.getText().toString());
                 return params;
